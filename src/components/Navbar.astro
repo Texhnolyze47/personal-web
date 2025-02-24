@@ -1,0 +1,52 @@
+<nav>
+    <a href="/">
+        <img src="src/assets/test-2-white.svg" alt="icon with the ivan.dev" />
+    </a>
+
+    <ul>
+        <li>Projects</li>
+        <li>About</li>
+        <li>Contact</li>
+        <!-- <select>
+            <option value="EN">Ingles</option>
+        </select> -->
+    </ul>
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 60px; /* Altura fija de la barra de navegación */
+        padding: 0 1rem; /* Espacio horizontal */
+        margin-bottom: 3rem;
+    
+    }
+
+    nav a {
+        display: flex; /* Permite que la imagen ocupe el alto completo */
+        align-items: center;
+        height: 100%; /* Mismo alto que el nav */
+        text-decoration: none; /* Quita el subrayado (opcional) */
+    }
+
+    nav a img {
+        height: 100%; /* La imagen ocupa el 100% de la altura del enlace */
+        width: auto; /* Mantiene la proporción */
+    }
+
+    nav ul {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+
+    nav ul li {
+        list-style: none;
+        cursor: pointer;
+    }
+</style>

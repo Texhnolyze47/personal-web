@@ -1,0 +1,54 @@
+---
+import Button from "./Button.astro"
+---
+<div class="personal-info">
+    <h1>Ivan Yesse Ramírez Uriarte</h1>
+
+        <h2>Full Stack Developer</h2>
+
+        <p>
+            Passionate about crafting dynamic web interfaces and robust backend systems.
+            With experience in HTML, CSS, React, Astro, Java, and Go, I bring ideas to life by blending creativity with technical expertise.
+        </p>
+
+     
+
+        <div class="buttons-wrapper">
+            <Button />
+        </div>
+
+ 
+        
+</div>
+
+<style>
+    .personal-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .personal-info h1 {
+        color: var(--primary-text);
+        font-size: 4.1rem;
+        padding: .5rem 0;
+    }
+
+    .personal-info h2 {
+        color: var(--primary-text);
+        font-size: 2rem;
+        padding: .5rem 0;
+    }
+
+    .personal-info p {
+        color: var(--secodary-text);
+        padding: .5rem 0;
+        font-size: 1.2rem;
+
+    }
+
+    .buttons-wrapper {
+    padding-top: .5rem;
+    display: flex;
+    align-items: center;
+  }
+</style>

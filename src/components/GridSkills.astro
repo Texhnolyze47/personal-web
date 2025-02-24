@@ -1,0 +1,38 @@
+---
+import GridSkillElement from "./GridSkillElement.astro";
+
+const skillData = [
+    {
+    skillName: "Frontend",
+    skillList: ["React","Next.js","Astro","Typescript"]
+    },
+    {
+        "skillName": "Backend",
+        "skillList": ["Python","Golang","Java","PostgreSQL","MongoDB"]
+    },
+    {
+        "skillName": "DevOps & Tools",
+        "skillList": ["Docker","Git","AWS","Linux","CI/CD"]
+    },
+    {
+        "skillName": "Soft Skills",
+        "skillList": ["Teamwork","Communication","Problem Solving","Time Management"]
+    }
+]
+---
+
+<div class="wrapper-skills">
+    {skillData.map((skill) => (
+        <GridSkillElement skillName={skill.skillName} skillList={skill.skillList} />
+    ))}
+</div>
+
+<style>
+    .wrapper-skills{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border: 1px solid #e5e7eb;
+        margin-bottom: 3rem;
+    }
+
+</style>

@@ -1,0 +1,30 @@
+---
+const {skillName, skillList} = Astro.props
+---
+<div class="container-skill-element">
+
+    <h3>{skillName}</h3>
+
+    <ul>
+        {skillList.map((skill) => (
+            <li>{skill}</li>
+        ))}
+</div>
+
+<style>
+
+    .container-skill-element{
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
+    }
+
+    .container-skill-element h3 {
+        color: var(--primary-text);
+        padding-bottom: 1rem;
+    }
+
+    .container-skill-element ul {
+        color: var(--secodary-text);
+    }
+
+</style>

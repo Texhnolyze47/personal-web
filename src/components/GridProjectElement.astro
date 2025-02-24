@@ -1,0 +1,29 @@
+---
+const {projectName, description} = Astro.props
+---
+<div class="container-project-element">
+    <h2>{projectName}</h2>
+
+    <p>{description}</p>
+</div>
+
+<style>
+
+    .container-project-element{
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
+        position: relative;
+    }
+
+    .container-project-element h2 {
+        position: absolute;
+        top: -1rem;
+        background-color: var(--background-color);
+        padding: 0 .5rem;
+    }
+
+    .container-project-element p {
+        color: var(--secodary-text);
+    }
+
+</style>

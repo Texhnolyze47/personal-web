@@ -1,0 +1,151 @@
+---
+const consoleLines = [
+  "◇ ¿Qué te gustaría hacer?",
+  "│ Iniciar un nuevo proyecto Full Stack",
+  "│ Configurar la estructura y arquitectura de tu aplicación",
+  "│",
+  "◇ ¿Cuál es tu stack tecnológico principal?",
+  "│ HTML, CSS, React, Astro, Java, Go",
+  "│",
+  "◇ ¿Qué funcionalidades clave deseas implementar?",
+  "│ Interfaces web dinámicas, API robusta, integración de backend",
+  "│",
+  "◇ ¿Dónde se organizarán los archivos del proyecto?",
+  "│ src/ (estructura modular para frontend y backend)",
+  "│",
+  "◇ ¿Qué herramientas y formatos utilizarás para la configuración?",
+  "│ ● TypeScript (.ts) para un tipado seguro",
+  "│ ○ JSON (.json) para configuraciones",
+  "│ ○ YAML (.yml, .yaml) para despliegues",
+  "│",
+  "└ Proyecto inicializado y estructura configurada con éxito! (Fase: Configuración y Desarrollo)",
+  "│",
+  "◇ Compilando y desplegando el proyecto",
+  "│ Compilando componentes React y páginas Astro...",
+  "│ Iniciando el servidor Java y el microservicio en Go...",
+  "│ Integrando y probando la API...",
+  "│",
+  "└ Proyecto desplegado en 3 fases exitosamente! (Fase: Despliegue)"
+];
+---
+
+<div class="console-container">
+  <div class="console-header">
+    <div class="console-header-dots">
+      <div class="dot dot-primary"></div>
+      <div class="dot dot-secondary"></div>
+      <div class="dot dot-tertiary"></div>
+    </div>
+  </div>
+  <div class="console-body">
+    <div class="console-text">
+      {consoleLines.map(line => (
+        <span class="console-line">{line}</span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+/* Contenedor general */
+.console-container {
+  max-width: 48rem; /* Aproximadamente lo que representa max-w-3xl */
+  width: 100%;
+  border: 1px solid var(--border-color, #444); /* Usa una variable o un color fijo */
+  padding: 1rem; /* p-4 */
+  background-color: #121212;
+  position: relative;
+  font-family: monospace;
+  /* Si cuentas con una imagen de ruido, podrías agregarla aquí */
+  background-repeat: repeat;
+  overflow: hidden;
+}
+
+/* Encabezado (los puntitos de la "ventana") */
+.console-header {
+  user-select: none;
+}
+
+.console-header-dots {
+  display: flex;
+  gap: 0.5rem; /* gap-2 */
+  padding-bottom: 1rem; /* pb-4 */
+  background-color: #121212;
+  background-repeat: repeat;
+}
+
+/* Cada uno de los puntos */
+.dot {
+  width: 0.875rem; /* w-3.5 */
+  height: 0.875rem; /* h-3.5 */
+  border-radius: 50%;
+}
+
+.dot-primary {
+  background-color: var(--primary-color, #ff5555); /* Define tu color primario */
+}
+
+.dot-secondary {
+  background-color: #878787;
+}
+
+.dot-tertiary {
+  background-color: #2C2C2C;
+}
+
+/* Área de contenido (scrollable) */
+.console-body {
+  overflow: auto;
+  max-height: 380px; /* Para pantallas pequeñas */
+  scroll-behavior: smooth;
+  color: #F5F5F3;
+}
+
+/* Ajuste en pantallas medianas en adelante */
+@media (min-width: 768px) {
+  .console-body {
+    max-height: 520px;
+  }
+}
+
+/* Contenido de texto */
+.console-text {
+  font-size: 0.75rem; /* text-xs */
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.05em; /* tracking-wide */
+  line-height: 1.625; /* leading-relaxed */
+}
+
+/* Cada línea del "console" */
+.console-line {
+  margin-bottom: 0.125rem; /* space-y-0.5: separa las líneas verticalmente */
+  transition: opacity 100ms;
+  opacity: 1; /* opacity-100 */
+}
+
+/* Utilidad para flex en elementos anidados */
+.flex {
+  display: flex;
+}
+
+/* Margen negativo (por ejemplo, -ml-[1.5px]) */
+.negative-margin {
+  margin-left: -1.5px;
+}
+
+/* Clase para el bloque indicador que simula el "█" */
+.block-indicator {
+  display: inline-block;
+  width: 0.25rem;  /* Aproximadamente w-1 */
+  height: 1rem;    /* h-4 */
+  background-color: #F5F5F3;
+  margin-left: 0.25rem; /* ml-1 */
+}
+
+/* Margen superior para separar bloques (mt-4) */
+.margin-top {
+  margin-top: 1rem;
+}
+
+</style>
