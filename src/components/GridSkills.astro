@@ -21,18 +21,24 @@ const skillData = [
 ]
 ---
 
-<div class="wrapper-skills">
+<div class="skills__grid">
     {skillData.map((skill) => (
         <GridSkillElement skillName={skill.skillName} skillList={skill.skillList} />
     ))}
 </div>
 
 <style>
-    .wrapper-skills{
+    .skills__grid{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         border: 1px solid #e5e7eb;
         margin-bottom: 3rem;
     }
 
+    @media screen and (max-width: 768px) {
+        .skills__grid{
+            grid-template-columns: 1fr;
+        }
+        
+    }
 </style>

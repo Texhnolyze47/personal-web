@@ -1,7 +1,7 @@
 ---
 const {skillName, skillList} = Astro.props
 ---
-<div class="container-skill-element">
+<div class="skills__item">
 
     <h3>{skillName}</h3>
 
@@ -13,17 +13,17 @@ const {skillName, skillList} = Astro.props
 
 <style>
 
-    .container-skill-element{
+    .skills__item {
         padding: 1.5rem;
         border: 1px solid #e5e7eb;
     }
 
-    .container-skill-element h3 {
+    .skills__item  h3 {
         color: var(--primary-text);
         padding-bottom: 1rem;
     }
 
-    .container-skill-element ul {
+    .skills__item  ul {
         color: var(--secodary-text);
     }
 
