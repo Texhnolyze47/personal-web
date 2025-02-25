@@ -17,7 +17,8 @@
   /* font */  
     --font-family: 'Roboto', sans-serif;
     --font-mono: 'Roboto Mono', monospace;
-    
+
+    --mobile-nav-breakpoint: 768px;
 }
 
 body {
