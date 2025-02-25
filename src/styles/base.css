@@ -14,7 +14,7 @@
     --primary-text: #fff;
     --secodary-text: #888888;
 
-  /* font */  
+    /* font */  
     --font-family: 'Roboto', sans-serif;
     --font-mono: 'Roboto Mono', monospace;
 
@@ -34,8 +34,8 @@ li {
   padding-inline-start: 1ch;
 }
 
-
-.intro {
+/* Section intro */
+.layout__intro {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,7 +44,13 @@ li {
 
 }
 
-.skills h2 {
+/* Sección de contenido (Skills, Education, Projects) */
+.layout__content {
+  margin: 2rem 2rem;
+}
+
+/* Title of sections */
+.layout__section-title {
   padding-bottom: 1rem;
 }
 
@@ -57,7 +63,29 @@ li {
   margin: 2rem 2rem;
 }
 
-footer {
-  text-align: -webkit-center;
+.layout__footer {
+  text-align: center;
   margin-top: 2rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .layout__intro {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .layout__content {
+    margin: 2rem 0;
+  }
+  
+  .layout__skills,
+  .layout__projects {
+    margin-bottom: 2rem;
+  }
+  
+  .layout__footer {
+    margin-top: 2rem;
+  }
 }

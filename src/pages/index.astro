@@ -1,42 +1,33 @@
 ---
-import Terminal from '../components/Terminal.astro';
-import Presentation from "../components/Presentation.astro"
-import Layout from '../layouts/Layout.astro';
-import GridSkills from '../components/GridSkills.astro';
-import GridProject from '../components/GridProject.astro';
-
+import Terminal from "../components/Terminal.astro";
+import Presentation from "../components/Presentation.astro";
+import Layout from "../layouts/Layout.astro";
+import GridSkills from "../components/GridSkills.astro";
+import GridProject from "../components/GridProject.astro";
 ---
 
 <Layout>
-	<section class="intro">
-
+    <section class="layout__intro">
         <Presentation />
 
         <Terminal />
-
     </section>
 
-    <section class="skillsandprojects">
-        <section class="skills">
-            <h2>Skills</h2>
-    
+    <section class="layout__content">
+        <section class="layout__skills">
+            <h2 class="layout__section-title">Skills</h2>
+
             <GridSkills />
-    
         </section>
-    
-        <section class="education">
-    
-        </section>
-    
-        <!-- <section class="projects">
+
+        <section class="layout__education"></section>
+
+        <!-- <section class="layout__projects">
             <GridProject />
-    
         </section>-->
     </section>
 
-    
-
-    <footer>
+    <footer class="layout__footer">
         <p>Made with Astro</p>
         <p>&copy; Ivan Ramírez</p>
     </footer>
