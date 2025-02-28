@@ -1,130 +1,122 @@
 ---
+// Add animation and interaction
 import { useTranslations } from "src/i18n/utils";
 import { languages } from "src/i18n/ui";
 const currentLanguage = Astro.currentLocale || "es";
 
 const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
 
-const consoleLines = translateLabels("terminal.welcome")
+const consoleLines = translateLabels("terminal.welcome");
 ---
 
 <div class="console-container">
   <div class="console-header">
+    <div class="console-title">terminal@ivan.dev</div>
     <div class="console-header-dots">
       <div class="dot dot-primary"></div>
       <div class="dot dot-secondary"></div>
       <div class="dot dot-tertiary"></div>
     </div>
   </div>
-  <div class="console-body">
+  <div class="console-body" tabindex="0">
     <div class="console-text">
-      {consoleLines.map(line => (
-        <span class="console-line">{line}</span>
+      {consoleLines.map((line :string, index: number) => (
+        <span class="console-line" style={`animation-delay: ${index * 100}ms`}>{line}</span>
       ))}
+        <span class="console-cursor"></span>
+
     </div>
   </div>
 </div>
 
 <style>
-/* Contenedor general */
+/* Terminal styles with animations */
 .console-container {
-  max-width: 48rem; /* Aproximadamente lo que representa max-w-3xl */
+  max-width: 48rem;
   width: 100%;
-  border: 1px solid var(--border-color, #444); /* Usa una variable o un color fijo */
-  padding: 1rem; /* p-4 */
+  border: 1px solid var(--border-color, #444);
+  border-radius: 0.5rem;
+  padding: 1rem;
   background-color: #121212;
   position: relative;
-  font-family: monospace;
-  /* Si cuentas con una imagen de ruido, podrías agregarla aquí */
-  background-repeat: repeat;
-  overflow: hidden;
+  font-family: var(--font-mono, monospace);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Encabezado (los puntitos de la "ventana") */
 .console-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   user-select: none;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #2c2c2c;
+  margin-bottom: 0.75rem;
+}
+
+.console-title {
+  font-size: 0.875rem;
+  color: #878787;
 }
 
 .console-header-dots {
   display: flex;
-  gap: 0.5rem; /* gap-2 */
-  padding-bottom: 1rem; /* pb-4 */
-  background-color: #121212;
-  background-repeat: repeat;
+  gap: 0.5rem;
 }
 
-/* Cada uno de los puntos */
 .dot {
-  width: 0.875rem; /* w-3.5 */
-  height: 0.875rem; /* h-3.5 */
+  width: 0.875rem;
+  height: 0.875rem;
   border-radius: 50%;
 }
 
-.dot-primary {
-  background-color: var(--primary-color, #ff5555); /* Define tu color primario */
-}
+.dot-primary { background-color: #ff5555; }
+.dot-secondary { background-color: #878787; }
+.dot-tertiary { background-color: #2C2C2C; }
 
-.dot-secondary {
-  background-color: #878787;
-}
-
-.dot-tertiary {
-  background-color: #2C2C2C;
-}
-
-/* Área de contenido (scrollable) */
 .console-body {
   overflow: auto;
-  max-height: 380px; /* Para pantallas pequeñas */
+  max-height: 380px;
   scroll-behavior: smooth;
   color: #F5F5F3;
 }
 
-/* Ajuste en pantallas medianas en adelante */
+.console-text {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.05em;
+  line-height: 1.625;
+}
+
+.console-line {
+  margin-bottom: 0.125rem;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  
+}
+
+.console-cursor {
+  display: inline-block;
+  width: 0.5rem;
+  height: 1rem;
+  background-color: #F5F5F3;
+  margin-left: 0.25rem;
+  animation: blink 1s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 @media (min-width: 768px) {
   .console-body {
     max-height: 520px;
   }
 }
-
-/* Contenido de texto */
-.console-text {
-  font-size: 0.75rem; /* text-xs */
-  display: flex;
-  flex-direction: column;
-  letter-spacing: 0.05em; /* tracking-wide */
-  line-height: 1.625; /* leading-relaxed */
-}
-
-/* Cada línea del "console" */
-.console-line {
-  margin-bottom: 0.125rem; /* space-y-0.5: separa las líneas verticalmente */
-  transition: opacity 100ms;
-  opacity: 1; /* opacity-100 */
-}
-
-/* Utilidad para flex en elementos anidados */
-.flex {
-  display: flex;
-}
-
-/* Margen negativo (por ejemplo, -ml-[1.5px]) */
-.negative-margin {
-  margin-left: -1.5px;
-}
-
-/* Clase para el bloque indicador que simula el "█" */
-.block-indicator {
-  display: inline-block;
-  width: 0.25rem;  /* Aproximadamente w-1 */
-  height: 1rem;    /* h-4 */
-  background-color: #F5F5F3;
-  margin-left: 0.25rem; /* ml-1 */
-}
-
-/* Margen superior para separar bloques (mt-4) */
-.margin-top {
-  margin-top: 1rem;
-}
-
 </style>
