@@ -1,28 +1,141 @@
 ---
-import { languages } from "src/i18n/ui"
-
+import { languages } from "src/i18n/ui";
 
 const currentLanguage = Astro.currentLocale || "es";
-
 ---
+
 <div class="language-picker">
-    <select id="language-selector">
-        {Object.entries(languages).map(([lang, label]) => (
-            <option value={lang} selected={lang === currentLanguage}>
-              {label}
-            </option>
-        ))}
-    </select> 
+  <button
+    type="button"
+    id="language-menu-button"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-controls="language-menu"
+    class="lang-btn"
+  >
+    [{currentLanguage}]
+  </button>
+  
+  <div 
+    id="language-menu" 
+    class="language-menu" 
+    role="menu" 
+    aria-labelledby="language-menu-button"
+  >
+    {Object.entries(languages).map(([lang, label]) => (
+      <a 
+        href={`/personal-web/${lang}/`} 
+        class={`language-menu-item ${lang === currentLanguage ? 'active' : ''}`}
+        role="menuitem"
+      >
+        {label}
+      </a>
+    ))}
+  </div>
 </div>
 
 <script>
-    // Get the select element
-    const languageSelector = document.getElementById('language-selector');
-    
-    // Add event listener for language change
-    languageSelector.addEventListener('change', (event) => {
-      const selectedLang = event.target.value;
-      // Redirect to the selected language
-      window.location.href = `/personal-web/${selectedLang}/`;
-    });
-  </script>
+  const languageButton = document.getElementById('language-menu-button');
+  const languageMenu = document.getElementById('language-menu');
+  const mobileMenuButton = document.getElementById('main-nav__menu-button');
+  
+  // Toggle menu visibility when button is clicked
+  languageButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    const expanded = languageButton.getAttribute('aria-expanded') === 'true';
+    languageButton.setAttribute('aria-expanded', !expanded);
+    languageMenu.classList.toggle('show');
+  });
+  
+  // Close language menu when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!languageButton.contains(event.target) && !languageMenu.contains(event.target)) {
+      languageButton.setAttribute('aria-expanded', 'false');
+      languageMenu.classList.remove('show');
+    }
+  });
+</script>
+
+<style>
+  .language-picker {
+    position: relative;
+    display: inline-block;
+
+
+  }
+  
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-text, #888);
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0 .5rem;
+  }
+  
+  .lang-btn:hover {
+    color: var(--primary-text, #fff);
+  }
+  
+  .language-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 0;
+    background-color: var(--background-color, #121212);
+    border: 1px solid var(--border-color, #333);
+    border-radius: 4px;
+    min-width: 120px;
+    z-index: 10;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .language-menu.show {
+    display: block;
+  }
+  
+  .language-menu-item {
+    display: block;
+    padding: .5rem 1rem;
+    color: var(--secondary-text, #888);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+  
+
+  .language-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--primary-text, #fff);
+  }
+  
+  .language-menu-item.active {
+    color: var(--primary-text, #fff);
+    font-weight: 500;
+  }
+  
+  /* Media query for responsive design */
+  @media screen and (max-width: 768px) {
+
+    .language-menu {
+      left: 0;
+      right: auto;
+    }
+
+    .language-menu-item {
+    display: block;
+    padding: 2vw 1rem;
+    color: var(--secondary-text, #888);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+  
+  }
+</style>
