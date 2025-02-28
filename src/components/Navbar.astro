@@ -1,12 +1,11 @@
 ---
 import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
 import LanguagePicker from "./LanguagePicker.astro";
-import { useTranslations } from "src/i18n/utils";
-import type { languages } from "src/i18n/ui";
+import { getTranslator } from "src/i18n/utils";
 
 const currentLanguage  = Astro.currentLocale || "es";
 
-const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
+const translateLabels = getTranslator(Astro.currentLocale);
 ---
 
 <nav class="main-nav">
