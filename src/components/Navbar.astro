@@ -41,7 +41,10 @@ const translateLabels = useTranslations(currentLanguage as keyof typeof language
       <li class="main-nav__menu-item">
         <a class="main-nav__menu-item__link" href={getAbsoluteLocaleUrl(currentLanguage, "/")}>{translateLabels('nav.contact')}</a>
       </li>
-      <LanguagePicker />
+  
+      <li class="main-nav__menu-item">
+        <LanguagePicker />
+      </li>
     </ul>
   </nav>
   
@@ -104,6 +107,7 @@ const translateLabels = useTranslations(currentLanguage as keyof typeof language
 .main-nav__menu-item {
   list-style: none;
   font-size: 1.2rem;
+  padding: 0;
 }
 
 .main-nav__menu-item__link {
