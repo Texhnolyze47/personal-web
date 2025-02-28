@@ -11,7 +11,10 @@ export const ui = {
     'nav.contact': 'Contacto',
     'presentation.role': 'Desarrollador Full Stack',
     'presentation.description': 'Apasionado de la elaboración de interfaces web y sistemas backend robustos. Con experiencia en HTML, CSS, React, Astro, Java y Go, doy vida a las ideas combinando la creatividad con la experiencia técnica.',
-    'button.cv': 'Descargar CV',
+    'button.cv': {
+        title: 'Descargar CV',
+        path: '/personal-web/data/cv.pdf'
+    },
     'terminal.welcome': [
         "◇ ¿Qué te gustaría hacer?",
         "│ Iniciar un nuevo proyecto Full Stack",
@@ -68,7 +71,10 @@ export const ui = {
     'nav.contact': 'Contact',
     'presentation.role': 'Full Stack Developer',
     'presentation.description': 'Passionate about crafting dynamic web interfaces and robust backend systems. With experience in HTML, CSS, React, Astro, Java, and Go, I bring ideas to life by blending creativity with technical expertise. ',
-    'button.cv': 'Download CV',
+    'button.cv': {
+        title: 'Download CV',
+        path: '/personal-web/data/cv-en.pdf'
+    },
     'terminal.welcome': [
         "◇ What would you like to do?",
         "│ Start a new Full Stack project",
