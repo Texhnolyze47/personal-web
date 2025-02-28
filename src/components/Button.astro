@@ -4,11 +4,14 @@ import { languages } from "src/i18n/ui";
 const currentLanguage  = Astro.currentLocale || "es";
 
 const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
+
+const cvPath = translateLabels('cv.path')
+
 ---
 <div class="button-wrapper">
   <div class="button-wrapper__overlay"></div>
   <button class="button-wrapper__button" type="button" aria-label="Download CV">
-     <a href="/personal-web/data/cv.pdf">{translateLabels('button.cv')}</a>
+     <a href={cvPath}>{translateLabels('cv.title')}</a>
   </button>
 </div>
 
