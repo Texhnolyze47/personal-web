@@ -1,14 +1,18 @@
 ---
 import Button from "./Button.astro"
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLanguage  = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
 ---
 <div class="personal-info">
     <h1>Ivan Yesse Ramírez Uriarte</h1>
 
-        <h2>Full Stack Developer</h2>
+        <h2>{translateLabels('presentation.role')}</h2>
 
         <p>
-            Passionate about crafting dynamic web interfaces and robust backend systems.
-            With experience in HTML, CSS, React, Astro, Java, and Go, I bring ideas to life by blending creativity with technical expertise.
+            {translateLabels('presentation.description')}
         </p>
 
      

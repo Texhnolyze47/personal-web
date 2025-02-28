@@ -1,0 +1,32 @@
+---
+import Terminal from "@components/Terminal.astro";
+import Presentation from "@components/Presentation.astro";
+import GridSkills from "@components/GridSkills.astro";
+import GridProject from "@components/GridProject.astro";
+
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLanguage = Astro.currentLocale || "es"
+
+const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
+
+---
+<section class="layout__intro">
+    <Presentation />
+
+    <Terminal />
+</section>
+
+<section class="layout__content">
+    <section class="layout__skills">
+        <h2 class="layout__section-title">{translateLabels('skills.title')}</h2>
+
+        <GridSkills />
+    </section>
+
+    <section class="layout__education"></section>
+
+    <!-- <section class="layout__projects">
+        <GridProject />
+    </section>-->
+</section>

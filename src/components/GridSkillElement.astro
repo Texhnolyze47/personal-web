@@ -1,14 +1,16 @@
 ---
-const {skillName, skillList} = Astro.props
+const {skillName, skillItems} = Astro.props
 ---
 <div class="skills__item">
 
     <h3>{skillName}</h3>
 
     <ul>
-        {skillList.map((skill) => (
-            <li>{skill}</li>
-        ))}
+    {skillItems.map((skill) => (
+        <li>{skill}</li>
+    ))
+        }
+    </ul>
 </div>
 
 <style>

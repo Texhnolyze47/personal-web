@@ -1,30 +1,24 @@
 ---
 import GridSkillElement from "./GridSkillElement.astro";
 
-const skillData = [
-    {
-    skillName: "Frontend",
-    skillList: ["React","Next.js","Astro","Typescript"]
-    },
-    {
-        "skillName": "Backend",
-        "skillList": ["Python","Golang","Java","PostgreSQL","MongoDB"]
-    },
-    {
-        "skillName": "DevOps & Tools",
-        "skillList": ["Docker","Git","AWS","Linux","CI/CD"]
-    },
-    {
-        "skillName": "Soft Skills",
-        "skillList": ["Teamwork","Communication","Problem Solving","Time Management"]
-    }
-]
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLanguage = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
+
+const skillsData = translateLabels("skills.list")
 ---
 
 <div class="skills__grid">
-    {skillData.map((skill) => (
-        <GridSkillElement skillName={skill.skillName} skillList={skill.skillList} />
-    ))}
+ {
+    skillsData.map(skill => (
+            <GridSkillElement 
+                skillName={skill.skillName} 
+                skillItems={skill.skillItems} 
+            />
+        ))
+ }
 </div>
 
 <style>

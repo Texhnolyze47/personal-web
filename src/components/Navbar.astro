@@ -1,5 +1,16 @@
+---
+import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
+import LanguagePicker from "./LanguagePicker.astro";
+import { useTranslations } from "src/i18n/utils";
+import type { languages } from "src/i18n/ui";
+
+const currentLanguage  = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
+---
+
 <nav class="main-nav">
-    <a href="/personal-web/" class="main-nav__brand">
+    <a href={getRelativeLocaleUrl(currentLanguage, "/")} class="main-nav__brand">
       <img
         src="/personal-web/test-2-white.svg"
         alt="icon with the ivan.dev"
@@ -22,17 +33,15 @@
   
     <ul id="main-nav__menu" class="main-nav__menu">
       <li class="main-nav__menu-item">
-        <a class="main-nav__menu-item__link" href="#">Projects</a>
+        <a class="main-nav__menu-item__link" href={getAbsoluteLocaleUrl(currentLanguage, "/")}>{translateLabels('nav.projects')}</a>
       </li>
       <li class="main-nav__menu-item">
-        <a class="main-nav__menu-item__link" href="#">About</a>
+        <a class="main-nav__menu-item__link" href={getAbsoluteLocaleUrl(currentLanguage, "/")}>{translateLabels('nav.about')}</a>
       </li>
       <li class="main-nav__menu-item">
-        <a class="main-nav__menu-item__link" href="#">Contact</a>
+        <a class="main-nav__menu-item__link" href={getAbsoluteLocaleUrl(currentLanguage, "/")}>{translateLabels('nav.contact')}</a>
       </li>
-      <!-- <select>
-           <option value="EN">Ingles</option>
-           </select> -->
+      <LanguagePicker />
     </ul>
   </nav>
   

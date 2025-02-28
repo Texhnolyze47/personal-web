@@ -1,32 +1,11 @@
 ---
-const consoleLines = [
-  "◇ ¿Qué te gustaría hacer?",
-  "│ Iniciar un nuevo proyecto Full Stack",
-  "│ Configurar la estructura y arquitectura de tu aplicación",
-  "│",
-  "◇ ¿Cuál es tu stack tecnológico principal?",
-  "│ HTML, CSS, React, Astro, Java, Go",
-  "│",
-  "◇ ¿Qué funcionalidades clave deseas implementar?",
-  "│ Interfaces web dinámicas, API robusta, integración de backend",
-  "│",
-  "◇ ¿Dónde se organizarán los archivos del proyecto?",
-  "│ src/ (estructura modular para frontend y backend)",
-  "│",
-  "◇ ¿Qué herramientas y formatos utilizarás para la configuración?",
-  "│ ● TypeScript (.ts) para un tipado seguro",
-  "│ ○ JSON (.json) para configuraciones",
-  "│ ○ YAML (.yml, .yaml) para despliegues",
-  "│",
-  "└ Proyecto inicializado y estructura configurada con éxito! (Fase: Configuración y Desarrollo)",
-  "│",
-  "◇ Compilando y desplegando el proyecto",
-  "│ Compilando componentes React y páginas Astro...",
-  "│ Iniciando el servidor Java y el microservicio en Go...",
-  "│ Integrando y probando la API...",
-  "│",
-  "└ Proyecto desplegado en 3 fases exitosamente! (Fase: Despliegue)"
-];
+import { useTranslations } from "src/i18n/utils";
+import { languages } from "src/i18n/ui";
+const currentLanguage = Astro.currentLocale || "es";
+
+const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
+
+const consoleLines = translateLabels("terminal.welcome")
 ---
 
 <div class="console-container">

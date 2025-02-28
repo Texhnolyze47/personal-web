@@ -1,0 +1,28 @@
+---
+import { languages } from "src/i18n/ui"
+
+
+const currentLanguage = Astro.currentLocale || "es";
+
+---
+<div class="language-picker">
+    <select id="language-selector">
+        {Object.entries(languages).map(([lang, label]) => (
+            <option value={lang} selected={lang === currentLanguage}>
+              {label}
+            </option>
+        ))}
+    </select> 
+</div>
+
+<script>
+    // Get the select element
+    const languageSelector = document.getElementById('language-selector');
+    
+    // Add event listener for language change
+    languageSelector.addEventListener('change', (event) => {
+      const selectedLang = event.target.value;
+      // Redirect to the selected language
+      window.location.href = `/personal-web/${selectedLang}/`;
+    });
+  </script>

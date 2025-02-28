@@ -1,9 +1,11 @@
 ---
 import "../styles/base.css"
-import Navbar from "../components/Navbar.astro"
+import Navbar from "@components/Navbar.astro"
+import Footer from "@components/Footer.astro"
+const currentLanguage = Astro.currentLocale || "es"
 ---
 <!doctype html>
-<html lang="en">
+<html lang={currentLanguage}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -15,8 +17,12 @@ import Navbar from "../components/Navbar.astro"
 		<header>
 			<Navbar/>
 		</header>
+		<main>
+			<slot />
+		</main>
 		
-		<slot />
+		<Footer />
+
 	</body>
 </html>
 
