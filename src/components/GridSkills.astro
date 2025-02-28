@@ -1,11 +1,9 @@
 ---
 import GridSkillElement from "./GridSkillElement.astro";
 
-import { useTranslations } from "src/i18n/utils";
-import { languages } from "src/i18n/ui";
-const currentLanguage = Astro.currentLocale || "es";
+import { getTranslator } from "src/i18n/utils";
 
-const translateLabels = useTranslations(currentLanguage as keyof typeof languages);
+const translateLabels = getTranslator(Astro.currentLocale);
 
 const skillsData = translateLabels("skills.list")
 ---
