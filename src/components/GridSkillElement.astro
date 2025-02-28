@@ -1,4 +1,8 @@
 ---
+interface SkillProps {
+    skillName: string;
+    skillItems: string[];
+}
 const {skillName, skillItems} = Astro.props
 ---
 <div class="skills__item">
@@ -6,7 +10,7 @@ const {skillName, skillItems} = Astro.props
     <h3>{skillName}</h3>
 
     <ul>
-    {skillItems.map((skill) => (
+    {skillItems.map((skill: SkillProps) => (
         <li>{skill}</li>
     ))
         }
