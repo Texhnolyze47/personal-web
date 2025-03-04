@@ -73,7 +73,7 @@ export const ui = {
             description: "Convierte arte ASCII a SVG."
         },
         {
-            projectName: "diagram-artchitect",
+            projectName: "diagram-architect",
             description: "Una herramienta para crear diagramas"
         },
         {
@@ -150,7 +150,7 @@ export const ui = {
             description: "Convert ASCII art to SVG."
         },
         {
-            projectName: "diagram-artchitect",
+            projectName: "diagram-architect",
             description: "A tool to create diagrams"
         },
         {
