@@ -1,8 +1,5 @@
 ---
-interface SkillProps {
-    skillName: string;
-    skillItems: string[];
-}
+import type { Skill } from "../types"
 const {skillName, skillItems} = Astro.props
 ---
 <div class="skills__item">
@@ -10,7 +7,7 @@ const {skillName, skillItems} = Astro.props
     <h3>{skillName}</h3>
 
     <ul>
-    {skillItems.map((skill: SkillProps) => (
+    {skillItems.map((skill: Skill) => (
         <li>{skill}</li>
     ))
         }

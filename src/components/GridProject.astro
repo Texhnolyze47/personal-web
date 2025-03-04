@@ -1,24 +1,9 @@
 ---
+import { getTranslator } from "src/i18n/utils";
 import GridProjectElement from "./GridProjectElement.astro";
 
-const projectData = [
-    {
-        projectName: "FitApp",
-        description: "A fitness app that helps you track your progress and set goals."
-    },
-    {
-        projectName: "Project 2",
-        description: "This is a description of the project"
-    },
-    {
-        projectName: "Project 3",
-        description: "This is a description of the project"
-    },
-    {
-        projectName: "Project 4",
-        description: "This is a description of the project"
-    }
-]
+const translateLabels = getTranslator(Astro.currentLocale);
+const projectData = translateLabels("projects.list");
 ---
 <div class="container-projects">
 

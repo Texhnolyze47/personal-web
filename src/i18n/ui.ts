@@ -62,6 +62,25 @@ export const ui = {
             skillItems: ["Trabajo en equipo","Comunicación","Resolución de problemas","Gestión del tiempo"]
         }
     ],
+    'projects.title': 'Proyectos',
+    'projects.list': [
+        {
+            projectName: "FitApp",
+            description: "Una app de fitness que te ayuda a hacer seguimiento de tu progreso y establecer metas."
+        },
+        {
+            projectName: "ASCII SVG",
+            description: "Convierte arte ASCII a SVG."
+        },
+        {
+            projectName: "diagram-artchitect",
+            description: "Una herramienta para crear diagramas"
+        },
+        {
+            projectName: "golang-cli",
+            description: "cli para crear proyectos en golang"
+        }
+    ],
     'footer.madeWith': 'Hecho con',
 
 },
@@ -118,6 +137,25 @@ export const ui = {
         {
             skillName: "Soft Skills",
             skillItems: ["Teamwork","Communication","Problem Solving","Time Management"]
+        }
+    ],
+    'projects.title': 'Proyectos',
+    'projects.list': [
+        {
+            projectName: "FitApp",
+            description: "A fitness app that helps you track your progress and set goals."
+        },
+        {
+            projectName: "ASCII SVG",
+            description: "Convert ASCII art to SVG."
+        },
+        {
+            projectName: "diagram-artchitect",
+            description: "A tool to create diagrams"
+        },
+        {
+            projectName: "golang-cli",
+            description: "golang cli project structure"
         }
     ],
     'footer.madeWith': 'Made with',
