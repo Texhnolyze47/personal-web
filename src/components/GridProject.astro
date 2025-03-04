@@ -20,4 +20,10 @@ const projectData = translateLabels("projects.list");
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
+
+    @media (max-width: 768px) {
+        .container-projects {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
