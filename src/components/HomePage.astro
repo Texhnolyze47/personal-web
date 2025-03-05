@@ -5,6 +5,7 @@ import GridSkills from "@components/GridSkills.astro";
 import GridProject from "@components/GridProject.astro";
 
 import { getTranslator } from "src/i18n/utils";
+import Button from "./Button.astro";
 
 const translateLabels = getTranslator(Astro.currentLocale);
 
@@ -17,14 +18,20 @@ const translateLabels = getTranslator(Astro.currentLocale);
 
 <section class="layout__content">
     <section class="layout__skills">
-        <h2 class="layout__section-title">{translateLabels('skills.title')}</h2>
+        <h2 class="layout__skills-title">{translateLabels('skills.title')}</h2>
 
         <GridSkills />
     </section>
 
     <section class="layout__education"></section>
 
-   <section class="layout__projects">
+   <section id="projects" class="layout__projects">
         <GridProject />
+    </section>
+
+    <section class="layout__contact">
+        <h2 class="layout__section-title">{translateLabels('contact.title')}</h2>
+        <span class="layout__section-text">{translateLabels('contact.description')}</span>
+        <Button link="contact" />
     </section>
 </section>
