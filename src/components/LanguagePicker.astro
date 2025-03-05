@@ -68,7 +68,7 @@ const currentLanguage = Astro.currentLocale || "es";
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--secondary-text, #888);
+    color: var(--color-gray);
     background: transparent;
     border: none;
     outline: none;
@@ -79,7 +79,7 @@ const currentLanguage = Astro.currentLocale || "es";
   }
   
   .lang-btn:hover {
-    color: var(--primary-text, #fff);
+    color: var(--primary-text, var(--color-white));
   }
   
   .language-menu {
@@ -88,9 +88,7 @@ const currentLanguage = Astro.currentLocale || "es";
     top: 100%;
     left: auto;
     right: 0;
-    background-color: var(--background-color, #121212);
-    border: 1px solid var(--border-color, #333);
-    border-radius: 4px;
+    background-color: var(--background-color);
     min-width: 120px;
     z-index: 10;
     padding: 0.5rem 0;
@@ -105,7 +103,7 @@ const currentLanguage = Astro.currentLocale || "es";
   .language-menu-item {
     display: block;
     padding: .5rem 1rem;
-    color: var(--secondary-text, #888);
+    color: var(--color-gray);
     text-decoration: none;
     font-size: 0.875rem;
   }
@@ -113,11 +111,11 @@ const currentLanguage = Astro.currentLocale || "es";
 
   .language-menu-item:hover {
     background-color: rgba(255, 255, 255, 0.05);
-    color: var(--primary-text, #fff);
+    color: var(--color-white);
   }
   
   .language-menu-item.active {
-    color: var(--primary-text, #fff);
+    color: var(--color-white);
     font-weight: 500;
   }
   
@@ -132,7 +130,7 @@ const currentLanguage = Astro.currentLocale || "es";
     .language-menu-item {
     display: block;
     padding: 2vw 1rem;
-    color: var(--secondary-text, #888);
+    color: var(--color-gray);
     text-decoration: none;
     font-size: 0.875rem;
   }

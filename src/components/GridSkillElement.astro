@@ -17,17 +17,22 @@ const {skillName, skillItems} = Astro.props
 <style>
 
     .skills__item {
-        padding: 1.5rem;
-        border: 1px solid #e5e7eb;
+        padding: 2.5rem;
+        border: 1px solid var(--border-color);
     }
 
     .skills__item  h3 {
         color: var(--primary-text);
         padding-bottom: 1rem;
+        font-size: clamp(1rem, 1.8vw, 1.8rem);
+        
     }
 
     .skills__item  ul {
         color: var(--secodary-text);
+        font-size: clamp(.8rem, 1.2vw, 1.2rem);
+        font-family: var(--font-mono);
+
     }
 
 </style>

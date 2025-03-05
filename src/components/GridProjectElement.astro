@@ -11,7 +11,7 @@ const {projectName, description} = Astro.props
 
     .container-project-element{
         padding: 1.5rem;
-        border: 1px solid #e5e7eb;
+        border: 1px solid var(--border-color);
         position: relative;
     }
 
@@ -24,6 +24,8 @@ const {projectName, description} = Astro.props
 
     .container-project-element p {
         color: var(--secodary-text);
+        font-family: var(--font-mono);
+
     }
 
 </style>
