@@ -3,13 +3,25 @@ import { getTranslator } from "src/i18n/utils";
 
 const translateLabels = getTranslator(Astro.currentLocale);
 
-const cvPath = translateLabels('cv.path')
+let {link, text} = Astro.props;
+
+
+if (link === "cv") {
+  link = translateLabels('cv.path')
+  text = translateLabels('cv.title')
+} 
+
+if (link === "contact") {
+  link = "mailto:ivan_yesse11@hotmail.com"
+  text = translateLabels('contact.button')
+}
+
 
 ---
 <div class="button-wrapper">
   <div class="button-wrapper__overlay"></div>
   <button class="button-wrapper__button" type="button" aria-label="Download CV">
-     <a href={cvPath}>{translateLabels('cv.title')}</a>
+     <a href={link}>{text}</a>
   </button>
 </div>
 
