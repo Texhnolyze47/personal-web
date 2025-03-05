@@ -9,7 +9,7 @@ export const languages = {
 export const ui = {
   es: {
     'nav.projects': 'Proyectos',
-    'nav.about': 'Acerca de',
+    'nav.about': 'Sobre mí',
     'nav.contact': 'Contacto',
     'presentation.role': 'Desarrollador Full Stack',
     'presentation.description': 'Apasionado de la elaboración de interfaces web y sistemas backend robustos. Con experiencia en HTML, CSS, React, Astro, Java y Go, doy vida a las ideas combinando la creatividad con la experiencia técnica.',
@@ -73,7 +73,7 @@ export const ui = {
             description: "Convierte arte ASCII a SVG."
         },
         {
-            projectName: "diagram-architect",
+            projectName: "diagram-craft",
             description: "Una herramienta para crear diagramas"
         },
         {
@@ -81,6 +81,9 @@ export const ui = {
             description: "cli para crear proyectos en golang"
         }
     ],
+    'contact.title': 'Contacto',
+    'contact.description': 'Actualmente estoy abierto a nuevas oportunidades y colaboraciones. No dudes en ponerte en contacto conmigo si quieres hablar de un proyecto o simplemente saludarme.',
+    'contact.button': 'Contacta conmigo',
     'footer.madeWith': 'Hecho con',
 
 },
@@ -139,7 +142,7 @@ export const ui = {
             skillItems: ["Teamwork","Communication","Problem Solving","Time Management"]
         }
     ],
-    'projects.title': 'Proyectos',
+    'projects.title': 'Projects',
     'projects.list': [
         {
             projectName: "FitApp",
@@ -150,7 +153,7 @@ export const ui = {
             description: "Convert ASCII art to SVG."
         },
         {
-            projectName: "diagram-architect",
+            projectName: "diagram-craft",
             description: "A tool to create diagrams"
         },
         {
@@ -158,6 +161,9 @@ export const ui = {
             description: "golang cli project structure"
         }
     ],
+    'contact.title': 'Contact',
+    'contact.description': "I'm currently open to new opportunities and collaborations. Feel free to reach out if you'd like to discuss a project or just say hello.",
+    'contact.button': 'Contact me',
     'footer.madeWith': 'Made with',
 },
 }
