@@ -19,13 +19,13 @@ const translateLabels = getTranslator(Astro.currentLocale);
 <section class="layout__content">
     <section class="layout__skills">
         <h2 class="layout__skills-title">{translateLabels('skills.title')}</h2>
-
         <GridSkills />
     </section>
 
     <section class="layout__education"></section>
 
    <section id="projects" class="layout__projects">
+        <h2 class="layout__projects-title">{translateLabels('projects.title')}</h2>
         <GridProject />
     </section>
 
