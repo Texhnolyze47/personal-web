@@ -1,19 +1,20 @@
 ---
-import Button from "./Button.astro"
+import Button from "./Button.astro";
 import { getTranslator } from "src/i18n/utils";
 
 const translateLabels = getTranslator(Astro.currentLocale);
 ---
-<div class="personal-info">
+
+<div id="#about" class="personal-info">
     <h1>Ivan Yesse Ramírez Uriarte</h1>
 
-        <h2>{translateLabels('presentation.role')}</h2>
+    <h2>{translateLabels("presentation.role")}</h2>
 
-        <p>{translateLabels('presentation.description')}</p>
+    <p>{translateLabels("presentation.description")}</p>
 
-        <div class="buttons-wrapper">
-            <Button link="cv" />
-        </div>
+    <div class="buttons-wrapper">
+        <Button link="cv" />
+    </div>
 </div>
 
 <style>
@@ -26,25 +27,24 @@ const translateLabels = getTranslator(Astro.currentLocale);
     .personal-info h1 {
         color: var(--primary-text);
         font-size: 4.1rem;
-        padding: .5rem 0;
+        padding: 0.5rem 0;
     }
 
     .personal-info h2 {
         color: var(--primary-text);
         font-size: 2rem;
-        padding: .5rem 0;
+        padding: 0.5rem 0;
     }
 
     .personal-info p {
         color: var(--secodary-text);
-        padding: .5rem 0;
+        padding: 0.5rem 0;
         font-size: 1.2rem;
-
     }
 
     .buttons-wrapper {
-    padding-top: .5rem;
-    display: flex;
-    align-items: center;
-  }
+        padding-top: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
 </style>
