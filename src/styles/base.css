@@ -31,7 +31,7 @@
   --console-header-border: #2c2c2c;
 
   /* font */
-  --font-family: 'Roboto', sans-serif;
+  --font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
   --font-mono: 'Roboto Mono', monospace;
 
   --mobile-nav-breakpoint: 768px;
