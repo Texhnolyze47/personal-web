@@ -56,7 +56,7 @@ li {
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
-  padding: 2rem 0 4rem 0;
+  padding: 0 0 4rem 0;
   margin: 0 auto;
 
 }
@@ -105,7 +105,7 @@ li {
 .layout__contact {
   position: relative;
   padding: 6rem;
-  margin: 8rem 0;
+  margin: 12rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
