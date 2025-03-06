@@ -3,99 +3,104 @@ import { getTranslator } from "src/i18n/utils";
 
 const translateLabels = getTranslator(Astro.currentLocale);
 
-let {link, text} = Astro.props;
-let acc
+let { link } = Astro.props;
+let acc;
+let text;
+let openInNewTab = "_self";
 
 if (link === "cv") {
-  link = translateLabels('cv.path')
-  text = translateLabels('cv.title')
-  acc = "Download CV"
-} 
+  link = translateLabels("cv.path");
+  text = translateLabels("cv.title");
+  openInNewTab = "_blank";
+  acc = "Download CV";
+}
 
 if (link === "contact") {
-  link = "mailto:ivan_yesse11@hotmail.com"
-  text = translateLabels('contact.button')
-  acc = "Contact me"
+  link = "mailto:ivan_yesse11@hotmail.com";
+  text = translateLabels("contact.button");
+  acc = "Contact me";
 }
-
-
 ---
+
 <div class="button-wrapper">
   <div class="button-wrapper__overlay"></div>
-  <a href={link} class="button-wrapper__button" aria-label={acc}>{text}</a>
+  <a
+    href={link}
+    class="button-wrapper__button"
+    target={openInNewTab}
+    aria-label={acc}>{text}</a
+  >
 </div>
 
-
 <style>
-.button-wrapper {
-  position: relative;
-  display: inline-block;
-  width: fit-content; 
-  margin-right: 1rem;
-}
+  .button-wrapper {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    margin-right: 1rem;
+  }
 
-.button-wrapper__overlay {
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--button-overlay); /* Borde blanco */
-}
+  .button-wrapper__overlay {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--button-overlay); /* Borde blanco */
+  }
 
-.button-wrapper__button {
-  /* Layout y tipografía */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-  font-family: monospace;
-  font-weight: 500;
-  font-size: 1.2rem;
-  text-decoration: none;
-  
-  /* Espaciado y borde */
-  padding: 0.8rem 1.5rem;
-  border: 1px solid var(--color-black);
-  
-  /* Colores */
-  background-color: var(--button-bg);
-  color: var(--background-color);
+  .button-wrapper__button {
+    /* Layout y tipografía */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    font-family: monospace;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-decoration: none;
 
-  /* Otros */
-  position: relative;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-/* Efecto hover (ligero desplazamiento y cambio de opacidad en el fondo) */
-.button-wrapper__button:hover {
-  transform: translate(2px, 2px);
-  background-color: rgba(255, 255, 255, 0.9);
-}
+    /* Espaciado y borde */
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--color-black);
 
-/* Enfoque accesible */
-.button-wrapper__button:focus-visible {
-  outline: none;
-}
+    /* Colores */
+    background-color: var(--button-bg);
+    color: var(--background-color);
 
-/* Estado disabled */
-.button-wrapper__button:disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
+    /* Otros */
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  /* Efecto hover (ligero desplazamiento y cambio de opacidad en el fondo) */
+  .button-wrapper__button:hover {
+    transform: translate(2px, 2px);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
 
-/* Si el botón incluye SVG */
-.button-wrapper__button svg {
-  pointer-events: none;
-  width: 1rem;  
-  height: 1rem;
-  flex-shrink: 0;
-}
+  /* Enfoque accesible */
+  .button-wrapper__button:focus-visible {
+    outline: none;
+  }
 
-a {
-  text-decoration: none;
-  color: var(--background-color);
-}
+  /* Estado disabled */
+  .button-wrapper__button:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
+  /* Si el botón incluye SVG */
+  .button-wrapper__button svg {
+    pointer-events: none;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--background-color);
+  }
 </style>
