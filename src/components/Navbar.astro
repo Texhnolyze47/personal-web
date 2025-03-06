@@ -129,9 +129,13 @@ const translateLabels = getTranslator(Astro.currentLocale);
   }
 
   .main-nav__menu-item__link {
-    color: var(--text-color); /* Ajusta según tu diseño */
+    color: var(--color-gray); /* Ajusta según tu diseño */
     text-decoration: none;
     padding: 0.2rem 0.5rem;
+  }
+
+  .main-nav__menu-item__link:hover {
+    color: var(--color-white); /* Ajusta según tu diseño */
   }
 
   @media screen and (max-width: 768px) {
