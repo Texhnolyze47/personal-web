@@ -3,194 +3,210 @@ import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
 import LanguagePicker from "./LanguagePicker.astro";
 import { getTranslator } from "src/i18n/utils";
 
-const currentLanguage  = Astro.currentLocale || "es";
+const currentLanguage = Astro.currentLocale || "es";
 
 const translateLabels = getTranslator(Astro.currentLocale);
 ---
 
 <nav class="main-nav">
-    <a href={getRelativeLocaleUrl(currentLanguage, "/")} class="main-nav__brand">
-      <img
-        src="/personal-web/test-2-white.svg"
-        alt="icon with the ivan.dev"
-        class="main-nav__brand-logo"
-      />
-    </a>
-  
-    <button id="main-nav__menu-button" class="main-nav__menu-button" aria-label="Toggle menu">
-      <img
-        class="main-nav__icon main-nav__icon--menu"
-        src="/personal-web/menu-line.svg"
-        alt="Menu button"
-      />
-      <img
-        class="main-nav__icon main-nav__icon--close"
-        src="/personal-web/close-line.svg"
-        alt="Close button"
-      />
-    </button>
-  
-    <ul id="main-nav__menu" class="main-nav__menu">
-      <li class="main-nav__menu-item">
-        <a class="main-nav__menu-item__link" href={getAbsoluteLocaleUrl(currentLanguage, "/")}>{translateLabels('nav.projects')}</a>
-      </li>
-      <li class="main-nav__menu-item">
-        <a class="main-nav__menu-item__link" href={getAbsoluteLocaleUrl(currentLanguage, "/")}>{translateLabels('nav.about')}</a>
-      </li>
-      <li class="main-nav__menu-item">
-        <a class="main-nav__menu-item__link" href={getAbsoluteLocaleUrl(currentLanguage, "/")}>{translateLabels('nav.contact')}</a>
-      </li>
-  
-      <li class="main-nav__menu-item">
-        <LanguagePicker />
-      </li>
-    </ul>
-  </nav>
-  
+  <a href={getRelativeLocaleUrl(currentLanguage, "/")} class="main-nav__brand">
+    <img
+      src="/personal-web/test-2-white.svg"
+      alt="icon with the ivan.dev"
+      class="main-nav__brand-logo"
+    />
+  </a>
+
+  <button
+    id="main-nav__menu-button"
+    class="main-nav__menu-button"
+    aria-label="Toggle menu"
+  >
+    <img
+      class="main-nav__icon main-nav__icon--menu"
+      src="/personal-web/menu-line.svg"
+      alt="Menu button"
+    />
+    <img
+      class="main-nav__icon main-nav__icon--close"
+      src="/personal-web/close-line.svg"
+      alt="Close button"
+    />
+  </button>
+
+  <ul id="main-nav__menu" class="main-nav__menu">
+    <li class="main-nav__menu-item">
+      <a
+        href="#projects"
+        class="main-nav__menu-item__link"
+        href={getAbsoluteLocaleUrl(currentLanguage, "/")}
+        >{translateLabels("nav.projects")}</a
+      >
+    </li>
+    <li class="main-nav__menu-item">
+      <a
+        href="#about"
+        class="main-nav__menu-item__link"
+        href={getAbsoluteLocaleUrl(currentLanguage, "/")}
+        >{translateLabels("nav.about")}</a
+      >
+    </li>
+    <li class="main-nav__menu-item">
+      <a
+        href="#contact"
+        class="main-nav__menu-item__link"
+        href={getAbsoluteLocaleUrl(currentLanguage, "/")}
+        >{translateLabels("nav.contact")}</a
+      >
+    </li>
+
+    <li class="main-nav__menu-item">
+      <LanguagePicker />
+    </li>
+  </ul>
+</nav>
+
 <style>
-.main-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: 60px; /* Altura fija de la barra de navegación */
-  margin-bottom: 3rem;
-}
+  .main-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 60px; /* Altura fija de la barra de navegación */
+    margin-bottom: 3rem;
+  }
 
-#main-nav__menu-button .main-nav__icon--close {
-  display: none;
-}
+  #main-nav__menu-button .main-nav__icon--close {
+    display: none;
+  }
 
-#main-nav__menu-button.active .main-nav__icon--menu {
-  display: none;
-}
+  #main-nav__menu-button.active .main-nav__icon--menu {
+    display: none;
+  }
 
-#main-nav__menu-button.active .main-nav__icon--close {
-  display: block;
-}
+  #main-nav__menu-button.active .main-nav__icon--close {
+    display: block;
+  }
 
-.main-nav__brand {
-  display: flex; /* Permite que la imagen ocupe el alto completo */
-  align-items: center;
-  height: 100%; /* Mismo alto que el nav */
-  text-decoration: none; /* Quita el subrayado (opcional) */
-}
+  .main-nav__brand {
+    display: flex; /* Permite que la imagen ocupe el alto completo */
+    align-items: center;
+    height: 100%; /* Mismo alto que el nav */
+    text-decoration: none; /* Quita el subrayado (opcional) */
+  }
 
-.main-nav__brand-logo {
-  height: 100%; /* La imagen ocupa el 100% de la altura del enlace */
-  width: auto; /* Mantiene la proporción */
-}
+  .main-nav__brand-logo {
+    height: 100%; /* La imagen ocupa el 100% de la altura del enlace */
+    width: auto; /* Mantiene la proporción */
+  }
 
-#main-nav__menu-button {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-left: auto;
-}
+  #main-nav__menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+  }
 
-.main-nav__icon {
-  height: 50px;
-  width: auto;
-}
+  .main-nav__icon {
+    height: 50px;
+    width: auto;
+  }
 
-.main-nav__menu {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-}
+  .main-nav__menu {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
 
-.main-nav__menu-item {
-  list-style: none;
-  font-size: 1.2rem;
-  padding: 0;
-}
+  .main-nav__menu-item {
+    list-style: none;
+    font-size: 1.2rem;
+    padding: 0;
+  }
 
-.main-nav__menu-item__link {
+  .main-nav__menu-item__link {
     color: var(--text-color); /* Ajusta según tu diseño */
     text-decoration: none;
     padding: 0.2rem 0.5rem;
   }
 
+  @media screen and (max-width: 768px) {
+    .main-nav {
+      height: auto; /* Altura automática */
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
 
-@media screen and (max-width: 768px) {
-  .main-nav {
-    height: auto; /* Altura automática */
-    font-size: 2rem;
-    margin: 1rem 0;
+    .main-nav__brand-logo {
+      height: 50px; /* Altura fija de la imagen */
+      z-index: 2;
+    }
+
+    .main-nav__menu.show {
+      display: flex;
+    }
+
+    #main-nav__menu-button {
+      display: block;
+      height: 50px;
+      margin-left: auto;
+      position: absolute;
+      right: 1.5rem; /* Alineación a la derecha */
+      z-index: 2;
+    }
+
+    .main-nav__menu {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      padding-top: 30vw;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--background-color); /* Ajusta según tu diseño */
+      z-index: 1;
+      justify-content: start;
+    }
+
+    .main-nav__menu-item {
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 1.5rem;
+    }
+
+    /* Oculta el menú de escritorio en dispositivos móviles */
+    .main-nav__menu {
+      display: none;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
   }
-
-  .main-nav__brand-logo {
-    height: 50px; /* Altura fija de la imagen */
-    z-index: 2;
-  }
-
-  .main-nav__menu.show {
-    display: flex;
-  }
-
-  #main-nav__menu-button {
-    display: block;
-    height: 50px;
-    margin-left: auto;
-    position: absolute;
-    right: 1.5rem; /* Alineación a la derecha */
-    z-index: 2;
-  }
-
-  .main-nav__menu {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    padding-top: 30vw;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--background-color); /* Ajusta según tu diseño */
-    z-index: 1;
-    justify-content: start;
-  }
-
-  .main-nav__menu-item {
-    width: 100%;
-    text-align: left;
-    padding: 0.75rem 1rem;
-    font-size: 1.5rem;
-  }
-
-
-  /* Oculta el menú de escritorio en dispositivos móviles */
-  .main-nav__menu {
-    display: none;
-  }
-
-  body.menu-open {
-    overflow: hidden;
-  }
-}
-
 </style>
 
 <script>
-    const menuButton = document.querySelector('#main-nav__menu-button');
-    const navMenu = document.querySelector('.main-nav__menu');
-    const body = document.body;
-  
-    menuButton.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-      menuButton.classList.toggle('active');
-      body.classList.toggle('menu-open');
+  const menuButton = document.querySelector("#main-nav__menu-button");
+  const navMenu = document.querySelector(".main-nav__menu");
+  const body = document.body;
+
+  menuButton.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+    menuButton.classList.toggle("active");
+    body.classList.toggle("menu-open");
+  });
+
+  document.querySelectorAll(".main-nav__menu-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      navMenu.classList.remove("show");
+      menuButton.classList.remove("active");
+      body.classList.remove("menu-open");
     });
-  
-    document.querySelectorAll('.main-nav__menu-item').forEach(item => {
-      item.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-        menuButton.classList.remove('active');
-        body.classList.remove('menu-open');
-      });
-    });
-  </script>
+  });
+</script>

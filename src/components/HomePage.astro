@@ -8,8 +8,8 @@ import { getTranslator } from "src/i18n/utils";
 import Button from "./Button.astro";
 
 const translateLabels = getTranslator(Astro.currentLocale);
-
 ---
+
 <section class="layout__intro">
     <Presentation />
 
@@ -17,21 +17,27 @@ const translateLabels = getTranslator(Astro.currentLocale);
 </section>
 
 <section class="layout__content">
-    <section class="layout__skills">
-        <h2 class="layout__skills-title">{translateLabels('skills.title')}</h2>
+    <section id="about" class="layout__skills">
+        <h2 class="layout__skills-title">{translateLabels("skills.title")}</h2>
         <GridSkills />
     </section>
 
     <section class="layout__education"></section>
 
-   <section id="projects" class="layout__projects">
-        <h2 class="layout__projects-title">{translateLabels('projects.title')}</h2>
+    <section id="projects" class="layout__projects">
+        <h2 class="layout__projects-title">
+            {translateLabels("projects.title")}
+        </h2>
         <GridProject />
     </section>
 
-    <section class="layout__contact">
-        <h2 class="layout__section-title">{translateLabels('contact.title')}</h2>
-        <span class="layout__section-text">{translateLabels('contact.description')}</span>
+    <section id="contact" class="layout__contact">
+        <h2 class="layout__section-title">
+            {translateLabels("contact.title")}
+        </h2>
+        <span class="layout__section-text"
+            >{translateLabels("contact.description")}</span
+        >
         <Button link="contact" />
     </section>
 </section>

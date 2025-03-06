@@ -5,13 +5,16 @@ import GridProjectElement from "./GridProjectElement.astro";
 const translateLabels = getTranslator(Astro.currentLocale);
 const projectData = translateLabels("projects.list");
 ---
+
 <div class="container-projects">
-
-    {projectData.map((project) => (
-        <GridProjectElement projectName={project.projectName} description={project.description} />
-    ))}
-
-
+    {
+        projectData.map((project) => (
+            <GridProjectElement
+                projectName={project.projectName}
+                description={project.description}
+            />
+        ))
+    }
 </div>
 
 <style>
